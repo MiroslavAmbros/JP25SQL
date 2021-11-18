@@ -9,3 +9,4 @@ create table git(
 );
 
 insert into git(sifra,naziv) values (null,'jeeej');
+insert into git(sifra,naziv) values (null,'juhu');
