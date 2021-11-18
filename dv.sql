@@ -50,9 +50,9 @@ insert into vrtic (sifra,naziv,cijena,iban) values
 (null,'DV Jelenko',1500.99,'hr2132435465'); 
 
 insert into osoba (ime,prezime,oib) values 
- ('odgajatelj','teta',01234567890),
- ('djete','maleno',12345678901),
- ('roditelj','veliki',23456789012);
+ ('Marica','Grbić',01234567890),
+ ('Tina','Pavičić',12345678901),
+ ('Martina','Pavičić',23456789012);
 
 insert into roditelj (sifra,osoba,telefon)
 values (null,3,'031385594');
