@@ -3,7 +3,7 @@ create database ucenjegit;
 use ucenjegit;
 
 create table git(
-    sifra int;
+    sifra int not null primary key auto_increment ;
     naziv varchar(50);
     tip int
 );
