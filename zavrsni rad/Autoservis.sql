@@ -10,26 +10,33 @@ create table djelatnik(
     oib char(11),
     iban varchar(50)
 );
-create table radni_nalog(
+
+create table radni_nalog (
     sifra int not null primary key auto_increment,
-    rednibroj int auto_increment,
+    rednibroj varchar(1000),
+    vozilo int,
     opisservisa varchar(250),
     datum datetime,
     djelatnik int
 );
+
 create table vozilo (
+    sifra int not null primary key auto_increment,
     registracija varchar(50),
     vlasnik int,
     brojsasije varchar(50),
     kilometraza varchar(50)
 );
+
 create table vlasnik (
+    sifra int not null primary key auto_increment,
     ime varchar(50),
     prezime varchar(50),
     oib char(11),
     brojtelefona varchar(50)
 );
 
-alter table djelatnik add foreign key (servis) references servis(sifra);
+
 alter table radni_nalog add foreign key (djelatnik) references djelatnik(sifra);
 alter table vozilo add foreign key (vlasnik) references vlasnik(sifra);
+alter table radni_nalog add foreign key (vozilo) references vozilo(sifra);
