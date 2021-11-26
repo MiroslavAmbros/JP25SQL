@@ -13,7 +13,7 @@ create table djelatnik(
 
 create table radni_nalog (
     sifra int not null primary key auto_increment,
-    rednibroj varchar(1000),
+    rednibroj varchar(50),
     vozilo int,
     opisservisa varchar(250),
     datum datetime,
@@ -40,3 +40,23 @@ create table vlasnik (
 alter table radni_nalog add foreign key (djelatnik) references djelatnik(sifra);
 alter table vozilo add foreign key (vlasnik) references vlasnik(sifra);
 alter table radni_nalog add foreign key (vozilo) references vozilo(sifra);
+
+insert into djelatnik (sifra,ime,prezime,oib,iban)
+values 
+(null,'Siniša','Tomić','14828349027','HR9725000095156619582'),
+(null,'Marinko','Košar','75258540677','HR3923400093136667769');
+
+insert into vlasnik (sifra,ime,prezime,oib,brojtelefona)
+values 
+(null,'Tomica','Božić','23093303162','+385981763121'),
+(null,'Mario','Marjanović','82157837941','+38591556782');
+
+insert into vozilo (sifra,registracija,vlasnik,brojsasije,kilometraza)
+values
+(null,'OS235OK',1,'1FMZU77KX4UA69977','189456')
+(null,'BM657ZU',2,'JH4KA8250MC004002','396852');
+
+insert into radni_nalog (sifra,rednibroj,vozilo,datum,opisservisa,djelatnik)
+values
+(null,'RN 1',1,'2021-11-05','Izmjena ulja i filtera i pregled vozila',1),
+(null,'RN 2',2,'2021-11-06','Izmjena desne poluosovine i pregled nosača motora',2);
