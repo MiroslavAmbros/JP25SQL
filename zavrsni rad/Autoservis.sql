@@ -56,3 +56,9 @@ values(null,'OS235OK',1,'1FMZU77KX4UA69977','189456'),
 insert into radni_nalog (sifra,rednibroj,vozilo,datum,opisservisa,djelatnik)
 values(null,'RN 1',1,'2021-11-05','Izmjena ulja i filtera i pregled vozila',1),
 (null,'RN 2',2,'2021-11-06','Izmjena desne poluosovine i pregled nosača motora',2);
+
+
+select b.opisservisa 
+from djelatnik a inner join radni_nalog b on b.djelatnik=a.sifra
+inner join vozilo c on b.vozilo=c.sifra
+where a.sifra=not null;
