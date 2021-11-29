@@ -7488,3 +7488,21 @@ select * from autor where ime like 'Miroslav%';
 select * from autor where ime like '%Miroslav%';
 select * from izdavac;
 select * from izdavac where naziv like '%d.o.o%';
+
+
+
+select a.naslov
+from katalog a inner join izdavac b on a.izdavac=b.sifra
+where b.aktivan is null;
+
+
+
+select b.ime,b.prezime
+from katalog a inner join autor b on a.autor=b.sifra
+where a.naslov not like '%b';
+
+
+select b.naziv
+from katalog a inner join izdavac b on a.izdavac=b.sifra
+inner join mjesto c on a.mjesto = c.sifra
+where c.postanskiBroj = 10000;
