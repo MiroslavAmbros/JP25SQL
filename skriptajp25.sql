@@ -9,7 +9,8 @@ create table smjer(
     naziv varchar(50) not null,
     trajanje int not null,
     cijena decimal(18,2),
-    certificiran boolean
+    certificiran boolean,
+    vrijemeunosa datetime not null default now()
 );
 
 create table osoba(
@@ -59,7 +60,7 @@ alter table clan add foreign key (polaznik) references polaznik(sifra);
 
 # Loš način
 # 1
-insert into smjer values (null,'Java programiranje',130,5999.99,true);
+insert into smjer values (null,'Java programiranje',130,5999.99,true,now());
 
 # Malo bolji način
 # 2
@@ -167,26 +168,6 @@ insert into clan (grupa,polaznik) values
 (1,23);
 
 
-# 'select naziv,smjer from grupa;
-
-select a.naziv as grupa, b.naziv as smjer 
-from grupa a inner join smjer b on a.smjer=b.sifra;
-
-select a.naziv as grupa, b.naziv as smjer, d.ime, d.prezime
-from grupa a inner join smjer b on a.smjer=b.sifra
-left join predavac c on a.predavac=c.sifra 
-left join osoba d on c.osoba=d.sifra;
-
-
-select a.sifra,b.ime,b.prezime 
-from polaznik a inner join osoba b on a.osoba=b.sifra;
-
-
-select d.ime,d.prezime 
-from clan a inner join grupa b on a.grupa=b.sifra 
-inner join polaznik c on a.polaznik=c.sifra 
-inner join osoba d on c.osoba=d.sifra 
-where b.naziv='jp25';
 
 
 
